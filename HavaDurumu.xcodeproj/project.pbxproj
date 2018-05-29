@@ -12,6 +12,7 @@
 		AC454BD320BD50EB006CC184 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC454BD120BD50EB006CC184 /* Main.storyboard */; };
 		AC454BD520BD50EB006CC184 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC454BD420BD50EB006CC184 /* Assets.xcassets */; };
 		AC454BD820BD50EB006CC184 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC454BD620BD50EB006CC184 /* LaunchScreen.storyboard */; };
+		AC454BE120BD510A006CC184 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC454BE020BD510A006CC184 /* Weather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		AC454BD420BD50EB006CC184 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC454BD720BD50EB006CC184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC454BD920BD50EB006CC184 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC454BE020BD510A006CC184 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +56,7 @@
 		AC454BCC20BD50EB006CC184 /* HavaDurumu */ = {
 			isa = PBXGroup;
 			children = (
-				AC454BDF20BD50F4006CC184 /* New Group */,
+				AC454BDF20BD50F4006CC184 /* Model */,
 				AC454BCD20BD50EB006CC184 /* AppDelegate.swift */,
 				AC454BCF20BD50EB006CC184 /* ViewController.swift */,
 				AC454BD120BD50EB006CC184 /* Main.storyboard */,
@@ -65,11 +67,12 @@
 			path = HavaDurumu;
 			sourceTree = "<group>";
 		};
-		AC454BDF20BD50F4006CC184 /* New Group */ = {
+		AC454BDF20BD50F4006CC184 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AC454BE020BD510A006CC184 /* Weather.swift */,
 			);
-			path = "New Group";
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC454BD020BD50EB006CC184 /* ViewController.swift in Sources */,
+				AC454BE120BD510A006CC184 /* Weather.swift in Sources */,
 				AC454BCE20BD50EB006CC184 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
