@@ -12,24 +12,38 @@ let myStringUrl = "https://api.darksky.net/forecast/4d035b02bbbeb3caf0bf45984c7d
 let url = URL (string:myStringUrl)!
 let myData = try! Data(contentsOf:url)
 let jsonDecoder = JSONDecoder()
-
+var tarih = 1527585091
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var lblDerece: UILabel!
+    @IBOutlet weak var lblHavaDurumu: UILabel!
+    @IBOutlet weak var lblUpdate: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     let result = try? jsonDecoder.decode(WeathearData.self, from: myData)
+        
+        
         if let havaDurumu = result?.currently{
             let derece = ((havaDurumu.apparentTemperature) - 32 ) / 1.8
-            print("Derece : " + String(derece))
+            let son = round (derece)
+            lblDerece.text = "Sıcaklık : " + String(son) + " Derece"
         }
+        
         if let hd = result?.hourly{
-            print(hd.summary)
+            lblHavaDurumu.text = "Hava Durumu : " + hd.summary
+            
+        }
+        
+        if let guncelleme = result?.currently{
+             let date = Date(timeIntervalSince1970:TimeInterval(guncelleme.time))
+            lblUpdate.text = "Güncelleme : " + String(describing: date)
         }
     }
 
-   
 
 }
 

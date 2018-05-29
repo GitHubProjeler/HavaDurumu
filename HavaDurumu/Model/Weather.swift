@@ -9,16 +9,18 @@
 import Foundation
 
 struct WeathearData:Codable {
-    var currently : Currently
-    var hourly:Hourly
+    var currently : Currently //Şunaki bilgilere erişiliyor
+    var hourly:Hourly // Saatlik olan bilgilere erişiliyor
     
+    //Şuanki bilgiler
     struct Currently:Codable {
         var summary:String
+        var time:Int
         var apparentTemperature:Double
     }
     
+    //Saatlik bilgiler
     struct Hourly:Codable {
         var summary:String
-        
     }
 }
