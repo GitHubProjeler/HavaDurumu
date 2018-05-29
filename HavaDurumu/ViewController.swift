@@ -8,8 +8,8 @@
 
 import UIKit
 
-let myStringUrl = "https://api.darksky.net/forecast/4d035b02bbbeb3caf0bf45984c7da94f/41.0082,28.9784?lang=tr"
-let url = URL (string:myStringUrl)!
+let myStringUrlAdana = "https://api.darksky.net/forecast/4d035b02bbbeb3caf0bf45984c7da94f/36.9924436,35.2616698?lang=tr"
+let url = URL (string:myStringUrlAdana)!
 let myData = try! Data(contentsOf:url)
 let jsonDecoder = JSONDecoder()
 
@@ -24,12 +24,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    let result = try? jsonDecoder.decode(WeathearData.self, from: myData)
+        yenile()
+    }
+
+    func yenile(){
+        
+        let result = try? jsonDecoder.decode(WeathearData.self, from: myData)
         
         
         if let havaDurumu = result?.currently{
             let derece = ((havaDurumu.apparentTemperature) - 32 ) / 1.8
-            let son = round (derece)
+            let son = round(derece)
             lblDerece.text = "Sıcaklık : " + String(son) + " Derece"
         }
         
@@ -39,11 +44,16 @@ class ViewController: UIViewController {
         }
         
         if let guncelleme = result?.currently{
-             let date = Date(timeIntervalSince1970:TimeInterval(guncelleme.time) + 3)
-            lblUpdate.text = "Güncelleme : " + String(describing: date)
+            let date = Date(timeIntervalSince1970:TimeInterval(guncelleme.time))
+            let localdate = date
+            lblUpdate.text = "Güncelleme : " + String(describing: localdate)
         }
     }
-
-
+    
+    
+    @IBAction func btnYenile(_ sender: Any) {
+        yenile()
+    }
+    
 }
 
