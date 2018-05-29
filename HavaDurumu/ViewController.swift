@@ -12,7 +12,7 @@ let myStringUrl = "https://api.darksky.net/forecast/4d035b02bbbeb3caf0bf45984c7d
 let url = URL (string:myStringUrl)!
 let myData = try! Data(contentsOf:url)
 let jsonDecoder = JSONDecoder()
-var tarih = 1527585091
+
 
 class ViewController: UIViewController {
 
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         }
         
         if let guncelleme = result?.currently{
-             let date = Date(timeIntervalSince1970:TimeInterval(guncelleme.time))
+             let date = Date(timeIntervalSince1970:TimeInterval(guncelleme.time) + 3)
             lblUpdate.text = "Güncelleme : " + String(describing: date)
         }
     }
